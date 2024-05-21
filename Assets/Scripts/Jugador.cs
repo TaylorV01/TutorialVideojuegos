@@ -20,7 +20,7 @@ public class Jugador : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetBool("IsOnFloor", true);
+            animator.SetBool("IsOnFloor", false);
             rigidbody2D.AddForce(new Vector2(0, fuerzaSalto));
         }
     }
