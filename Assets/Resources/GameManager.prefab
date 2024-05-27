@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0155426693d9c6458eb8b538227e607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  columna: {fileID: 2962630347796362052, guid: 08e818df62a5b1d49964fb8dd6662671, type: 3}
   fondo: {fileID: 0}
+  columnas: []
+  velocidad: 4

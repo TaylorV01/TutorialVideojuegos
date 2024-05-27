@@ -8,6 +8,7 @@ public class Jugador : MonoBehaviour
     private Animator animator;
     private new Rigidbody2D rigidbody2D;
     private int bandera = 0 ;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,10 @@ public class Jugador : MonoBehaviour
         {
             animator.SetBool("IsOnFloor", true);
             bandera = 1;
+        }
+        if (collision.gameObject.tag == "Obstaculo")
+        {
+            gameManager.gameOver= true;
         }
     }
 }
