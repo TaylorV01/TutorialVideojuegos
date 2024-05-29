@@ -6,9 +6,10 @@ public class Jugador : MonoBehaviour
 {
     public float fuerzaSalto;
     private Animator animator;
-    private new Rigidbody2D rigidbody2D;
+    public new Rigidbody2D rigidbody2D;
     private int bandera = 0 ;
     public GameManager gameManager;
+    public Trampa trampa;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class Jugador : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Suelo")
         {
@@ -38,6 +39,7 @@ public class Jugador : MonoBehaviour
         if (collision.gameObject.tag == "Obstaculo")
         {
             gameManager.gameOver= true;
+            trampa.atrapado = true;
         }
     }
 }

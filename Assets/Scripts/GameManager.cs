@@ -9,11 +9,11 @@ public class GameManager : MonoBehaviour
     public Renderer fondo;
     public List<GameObject> columnas;
     public List<GameObject> piedras;
-    public Liste<GameObject> serpientes;
+    public List<GameObject> trampas;
     public float velocidad = 2;
     public GameObject piedra1;
     public GameObject piedra2;
-    public GameObject serpiente;
+    public GameObject trampa;
     public GameObject MenuStart;
     public GameObject MenuGameOver;
     public bool gameOver = false;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
         piedras.Add(Instantiate(piedra1, new Vector2(7, -5), Quaternion.identity));
         piedras.Add(Instantiate(piedra2, new Vector2(14, -5), Quaternion.identity));
-        serpientes.Add(Instantiate(serpiente), new Vector2(15,-5), Quaternion.identity));
+        trampas.Add(Instantiate(trampa, new Vector2(10, -5), Quaternion.identity));
     }
 
     // Update is called once per frame
@@ -72,15 +72,16 @@ public class GameManager : MonoBehaviour
                 }
                 piedras[i].transform.position = piedras[i].transform.position + new Vector3(-1, 0, 0) * Time.deltaTime * velocidad;
             }
-            for (int i = 0; i < serpientes.Count; i++)
+            for (int i = 0; i < trampas.Count; i++)
             {
-                if (serpientes[i].transform.position.x <= -10)
+                if (trampas[i].transform.position.x <= -10)
                 {
                     float ran = Random.Range(7, 32);
-                    piedras[i].transform.position = new Vector3(ran, -5, 0);
+                    trampas[i].transform.position = new Vector3(ran, -5, 0);
                 }
-                piedras[i].transform.position = piedras[i].transform.position + new Vector3(-1, 0, 0) * Time.deltaTime * velocidad;
+                trampas[i].transform.position = trampas[i].transform.position + new Vector3(-1, 0, 0) * Time.deltaTime * velocidad;
             }
+
         }
     }
 }
